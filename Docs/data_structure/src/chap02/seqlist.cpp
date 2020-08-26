@@ -65,6 +65,13 @@ int LocateItem(SeqList &L, int e) {
     return 0;
 }
 
+void PrintList(const SeqList &L) {
+    for (int i = 0; i < L.length; ++i) {
+        cout << L.data[i] << " ";
+    }
+    cout << endl;
+}
+
 
 int main () {
     SeqList L;
@@ -72,8 +79,12 @@ int main () {
     IncreaseSize(L, 10);
 
     for (int i = 0; i < 10; ++i) {
-        ListInsert(L, 0, i);
+        ListInsert(L, i+1, i);
     }
+
+    PrintList(L);
+
+
 
     return 0;
 }
