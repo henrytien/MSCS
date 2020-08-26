@@ -43,6 +43,29 @@ bool ListInsert(SeqList &L, int i, int e) {
     L.data[i-1] = e;
     L.length++;
 }
+
+// 线性表的删除操作
+bool ListDelete(SeqList &L, int i, int &e) {
+    if (i < 1 || i > L.length)
+        return false;
+    for (int j = i; j < L.length; ++j) {
+        L.data[j-1] = L.data[j];
+    }
+    L.length--;
+    return true;
+}
+
+// 线性表的按值查找，返回位序
+int LocateItem(SeqList &L, int e) {
+    for (int i = 0; i < L.length; ++i) {
+        if (L.data[i] == e) {
+            return i + 1;
+        }
+    }
+    return 0;
+}
+
+
 int main () {
     SeqList L;
     InitList(L);
