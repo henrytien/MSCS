@@ -13,7 +13,7 @@ typedef struct {
 
 }SeqList;
 
-
+// 顺序表的定义
 void InitList(SeqList &L) {
     L.data = (int *) malloc(sizeof(int)*InitSize);
     L.length = 0;
@@ -31,7 +31,7 @@ void IncreaseSize(SeqList &L, int len) {
     free(p);
 }
 
-// 线性表的插入
+// 顺序表的插入
 bool ListInsert(SeqList &L, int i, int e) {
     if (i < 1 || i > L.length + 1)
         return false;
@@ -44,7 +44,7 @@ bool ListInsert(SeqList &L, int i, int e) {
     L.length++;
 }
 
-// 线性表的删除操作
+// 顺序表的删除操作
 bool ListDelete(SeqList &L, int i, int &e) {
     if (i < 1 || i > L.length)
         return false;
@@ -55,7 +55,7 @@ bool ListDelete(SeqList &L, int i, int &e) {
     return true;
 }
 
-// 线性表的按值查找，返回位序
+// 顺序表的按值查找，返回位序
 int LocateItem(SeqList &L, int e) {
     for (int i = 0; i < L.length; ++i) {
         if (L.data[i] == e) {
