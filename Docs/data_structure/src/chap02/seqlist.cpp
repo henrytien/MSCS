@@ -72,6 +72,24 @@ void PrintList(const SeqList &L) {
     cout << endl;
 }
 
+// 综合应用题第5题
+bool Del_s_t(SeqList &L, int s, int t) {
+    int k = 0;
+    if (L.length == 0 || s >= t) {
+        return false;
+    }
+
+    for (int i = 0; i < L.length; ++i) {
+        if (L.data[i] >= s && L.data[i] <= t) {
+            k++;
+        } else {
+            L.data[i-k] = L.data[i];
+        }
+    }
+    L.length -= k;
+    return true;
+}
+
 
 int main () {
     SeqList L;
@@ -81,6 +99,10 @@ int main () {
     for (int i = 0; i < 10; ++i) {
         ListInsert(L, i+1, i);
     }
+
+    PrintList(L);
+
+    Del_s_t(L, 3, 8);
 
     PrintList(L);
 
