@@ -90,8 +90,23 @@ bool Del_s_t(SeqList &L, int s, int t) {
     return true;
 }
 
+bool DeleteSame(SeqList &L) {
+    if (L.length == 0) {
+        return false;
+    }
 
-int main () {
+    int i = 0, j = 0;
+    for (int j = 1; j < L.length; ++j) {
+        if (L.data[i] != L.data[j]) {
+            L.data[++i] = L.data[j];
+        }
+    }
+    L.length = i+1;
+    return true;
+}
+
+void TestDel_s_t() {
+
     SeqList L;
     InitList(L);
     IncreaseSize(L, 10);
@@ -105,8 +120,32 @@ int main () {
     Del_s_t(L, 3, 8);
 
     PrintList(L);
+}
+
+void TestDeleteSame() {
+
+    SeqList L;
+    InitList(L);
+    IncreaseSize(L, 10);
+    ListInsert(L, 1, 1);
+
+    for (int i = 1; i < 4; ++i) {
+        ListInsert(L, i+1, 2);
+    }
+    ListInsert(L, 5, 3);
+
+    PrintList(L);
+
+    DeleteSame(L);
+
+    PrintList(L);
+}
 
 
+
+int main () {
+
+    TestDeleteSame();
 
     return 0;
 }
