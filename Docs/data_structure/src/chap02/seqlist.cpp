@@ -48,6 +48,7 @@ bool ListInsert(SeqList &L, int i, int e) {
 bool ListDelete(SeqList &L, int i, int &e) {
     if (i < 1 || i > L.length)
         return false;
+    e = L.data[i-1];
     for (int j = i; j < L.length; ++j) {
         L.data[j-1] = L.data[j];
     }
