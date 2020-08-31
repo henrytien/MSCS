@@ -142,7 +142,28 @@ void TestDeleteSame() {
     PrintList(L);
 }
 
+/// 13.[2018 统考真题]
+/// \param A
+/// \return 
+int FindMinInt(vector<int> &A) {
+    if (A.size() == 0) {
+        return 0;
+    }
 
+    vector<int> ans(A.size(),0);
+    for (auto e:A) {
+        if (e > 0) {
+            ans[e] = 1;
+        }
+    }
+
+    for (int i = 1; i < ans.size(); ++i) {
+        if (ans[i] == 0) {
+            return i;
+        }
+    }
+    return 0;
+}
 
 int main () {
 
